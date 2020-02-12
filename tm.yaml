@@ -1,0 +1,24 @@
+session_name: fuck_wifibot
+suppress_history: false
+windows:
+- window_name: core
+  layout: tiled
+  panes:
+    - roscore
+    - sudo chown wifibot:wifibot /dev/ttyACM0 && rosrun hokuyo_node hokuyo_node
+    - roslaunch teleop_twist_joy teleop.launch
+    - rosrun my_ex1 wifibot_LowLvCom
+    - rosrun rviz rviz
+- window_name: dev
+  start_directory: ~/catkin_ws
+  layout: main-horizontal
+  panes:
+    - source devel/setup.sh
+    - dstat -mcl
+    - source devel/setup.sh
+- window_name: topic
+  layout: tiled
+  panes:
+    - rostopic echo /leg_tracker_measurements
+    - rostopic echo /people_tracker_measurements
+    - rostopic echo /visualization_marker

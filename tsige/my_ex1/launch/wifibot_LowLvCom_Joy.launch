@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="/opt/ros/indigo/share/teleop_twist_joy/launch/teleop.launch" />
+  <node pkg="my_ex1" type="wifibot_LowLvCom" name="LowLvCom" />
+</launch>
